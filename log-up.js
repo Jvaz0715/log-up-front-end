@@ -61,10 +61,12 @@ const {
 // Being sure to do all that's outlined above, write
 // your code below!
 
+
+// my code
 const email = getInput(1);
 const password = getInput(2);
 
-if (email === isRegisteredUser && password === passwordMatches) {
+/*if (email === isRegisteredUser && password === passwordMatches) {
   console.log('You are logged in');
 } else if (email === isRegisteredUser && password !== passwordMatches) {
   console.log('Your password is incorrect');
@@ -76,5 +78,31 @@ if (email === isRegisteredUser && password === passwordMatches) {
   console.log('Password invalid. Must contain more than 8 characters, 1 uppercase, 1 lowercase');
 } else {
   console.log('error');
+}*/
+
+
+/* I see my mistake in my code was putting the parameters outside the given functions.
+The const that I declared for getInput should have been declared as parameters of the functions 
+from main.js
+*/
+
+// code review in class
+if (isRegisteredUser(email) && passwordMatches(email, password)) {
+  console.log('You are logged in');
+} 
+
+if (isRegisteredUser(email) && !passwordMatches(email, password)) {
+  console.log('Your password is incorrect');
 }
 
+if (!isRegisteredUser(email) && isValidEmail(email) && isValidPassword(password)){
+  console.log('You are now signed up');
+}
+
+if (isRegisteredUser(email) && !isValidEmail(email)) {
+  console.log('Email is not valid. Make sure email ends with @codeimmersives.com');
+} 
+
+if (!isRegisteredUser(email) && !isValidPassword(password)) {
+  console.log('Password invalid. Must contain more than 8 characters, 1 uppercase, 1 lowercase');
+} 
