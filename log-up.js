@@ -70,10 +70,11 @@ if (email === isRegisteredUser && password === passwordMatches) {
   console.log('Your password is incorrect');
 } else if (email !== isRegisteredUser && email === isValidEmail && password === isValidPassword){
   console.log('You are now signed up');
-} else if (email === !isRegisteredUser &&  email === !isValidEmail) {
+} else if (email !== isRegisteredUser && email !== isValidEmail) {
   console.log('Email is not valid. Make sure email ends with @codeimmersives.com');
-} else if (email !== isRegisteredUser && email === isValidEmail && password !== isValidPassword){
+} else if (email !== isRegisteredUser && password !== isValidPassword) {
   console.log('Password invalid. Must contain more than 8 characters, 1 uppercase, 1 lowercase');
 } else {
   console.log('error');
 }
+
